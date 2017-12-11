@@ -1,0 +1,38 @@
+<header class="masthead">
+  <h3 class="text-muted">HabiJabi Blog</h3>
+  <% if author_signed_in? %>
+  <small style="color: #32383e" class="text-muted"><b><%= current_author.name %></b></small>
+  <% end %>
+  <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav text-md-center nav-justified w-100">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: "nav-link #{yield(:blog_active)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'About', about_path, class: "nav-link #{yield(:about_active)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
+        </li>
+
+        <% if author_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:authors)}" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign out', destroy_author_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign in', new_author_session_path, method: :get, class: "nav-link" %>
+            </li>
+        <% end %>
+
+      </ul>
+    </div>
+  </nav>
+</header>

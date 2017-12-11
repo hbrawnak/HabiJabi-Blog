@@ -1,0 +1,26 @@
+<% provide(:page_title, @post.title) %>
+<% provide(:blog_active, "active") %>
+
+
+<p id="notice"><%= notice %></p>
+
+<img src="<%= @post.banner_image_url %>" alt="image" width="700" height="400">
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Published at:</strong>
+  <%= @post.published_date %>
+</p>
+
+<% if @post.author_id? %>
+    <strong><p>Author at:</strong> <samp><%= @post.author.name %></samp></p>
+<% end %>
+
+<p class="text-justify">
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
