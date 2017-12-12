@@ -3,7 +3,7 @@ module Blog
     before_action only: [:show]
 
     def index
-      @posts = Post.most_recent
+      @posts = Post.most_recent.published
     end
 
     def show

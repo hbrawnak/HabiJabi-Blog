@@ -7,7 +7,7 @@
         <div class="col-lg-4">
           <img class="card-img-top" src="<%= post.banner_image_url %>" height="200" width="200" alt="Card image cap">
           <h5><%= link_to post.title, post %></h5>
-          <p class="text-justify"><%= truncate(post.description, length: 130) %></p>
+          <p class="text-justify"><%= truncate(post.body.html_safe, length: 130) %></p>
           <p>Published at: <samp><%= post.published_date %></samp></p>
           <% if post.author_id? %>
           <p>Author: <samp><%= post.author.name %></samp></p>
