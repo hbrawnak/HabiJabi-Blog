@@ -3,7 +3,10 @@ module Blog
     before_action only: [:show]
 
     def index
-      @posts = Post.most_recent.published
+      #@posts = Post.paginate(:page => params[:page])
+      @posts = Post.most_recent.published.paginate(:page => params[:page], :per_page => 3)
+      #@posts = @post.paginate(page: params[:page])
+
     end
 
     def show
