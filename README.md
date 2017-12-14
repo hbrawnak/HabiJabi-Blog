@@ -8,6 +8,7 @@ Packages Used:
 * gem 'bootstrap', '~> 4.0.0.beta2.1'
 * gem 'friendly_id', '~> 5.1.0'
 * gem 'devise'
+* gem 'will_paginate'
 
 This is Tiny Blog
 by [Habibur Rahman](http://www.facebook.com/follow.hbrawnak).
