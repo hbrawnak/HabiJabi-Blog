@@ -12,6 +12,7 @@
           <% if post.author_id? %>
           <p>Author: <samp><%= post.author.name %></samp></p>
           <% end %>
+          <p><%= raw post.tags.map{|t| link_to t.name, posts_path(tag: t.name)}.join(', ') %></p>
           <p><%= link_to 'Read', post, class: 'btn btn-secondary' %></p>
         </div>
       <% end %>

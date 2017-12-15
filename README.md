@@ -9,6 +9,7 @@ Packages Used:
 * gem 'friendly_id', '~> 5.1.0'
 * gem 'devise'
 * gem 'will_paginate'
+* gem 'acts-as-taggable-on', '~> 5.0'
 
 This is Tiny Blog
 by [Habibur Rahman](http://www.facebook.com/follow.hbrawnak).
