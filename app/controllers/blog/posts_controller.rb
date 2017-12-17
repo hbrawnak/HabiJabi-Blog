@@ -3,16 +3,17 @@ module Blog
     before_action only: [:show]
 
     def index
-      if params[:tag].present?
-        @posts = Post.most_recent.published.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 3)
-      else
-        @posts = Post.most_recent.published.paginate(:page => params[:page], :per_page => 3)
-      end
-
+      @posts = storage.list_for(params[:page], params[:tag])
     end
 
     def show
-      @post = Post.friendly.find(params[:id])
+      @post = storage.friendly.find(params[:id])
+    end
+
+    private
+
+    def storage
+      Post.published
     end
 
   end

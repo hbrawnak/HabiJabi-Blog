@@ -24,8 +24,17 @@ class Post < ApplicationRecord
 
   belongs_to :author
 
+  PER_PAGE = 3
+
   scope :most_recent, ->{ order(published_at: :desc) }
   scope :published, ->{ where(published: true) }
+  scope :list_for, -> (page, tag) do
+    if tag.present?
+      most_recent.paginate(:page => page, :per_page => PER_PAGE).tagged_with(tag)
+    else
+      most_recent.paginate(:page => page, :per_page => PER_PAGE)
+    end
+  end
 
   def should_generate_new_friendly_id?
     title_changed?
