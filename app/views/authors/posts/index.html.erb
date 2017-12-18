@@ -17,7 +17,7 @@
       <% @posts.each do |post| %>
       <tr>
         <td><img src="<%= post.banner_image_url %>" height="50" width="50" alt="image"></td>
-        <td><%= link_to post.title, authors_post_path(post) %></td>
+        <td><%= link_to post.title, authors_post_path(post), class: 'title' %></td>
         <% if post.published? %>
             <td><%= link_to 'Unpublish', unpublish_authors_post_path(post), method: :put, class: 'btn btn-sm btn-info' %></td>
         <% else %>
