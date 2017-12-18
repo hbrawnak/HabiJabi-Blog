@@ -20,12 +20,18 @@
         </li>
 
         <% if author_signed_in? %>
-          <li class="nav-item">
-            <%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:authors)}" %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle <%= yield(:authors) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Author
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
+              <%= link_to 'Account', authors_account_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Logout', destroy_author_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
           </li>
-          <li class="nav-item">
-            <%= link_to 'Sign out', destroy_author_session_path, method: :delete, class: "nav-link" %>
-          </li>
+
         <% else %>
             <li class="nav-item">
               <%= link_to 'Sign in', new_author_session_path, method: :get, class: "nav-link" %>

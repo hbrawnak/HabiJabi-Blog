@@ -1,0 +1,47 @@
+<% provide(:page_title, 'Author') %>
+<% provide(:authors, "active") %>
+
+<div class="row">
+    <div class="col-md-6">
+      <%= form_tag authors_info_path, method: :put do %>
+        <div class="form-group">
+          <label for="title">Name</label>
+          <input type="text" name="author[name]" value="<%= current_author.name %>" class="form-control" required id="title" placeholder="title">
+
+        </div>
+        <div class="form-group">
+          <label for="image">Email</label>
+          <input type="text" name="author[email]" value="<%= current_author.email %>" class="form-control" id="image" aria-describedby="emailHelp" required placeholder="image url">
+        </div>
+        <div class="form-group">
+          <label for="body">Bio</label>
+          <textarea class="form-control" name="author[bio]" id="body" rows="5"><%= current_author.bio %></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Update info</button>
+      <% end %>
+    </div>
+
+
+
+<!--Password reset-->
+  <div class="col-md-6">
+    <%= form_tag authors_change_password_path, method: :put do %>
+      <div class="form-group">
+        <label for="current_password">Current Password</label>
+        <input type="password" name="author[current_password]" class="form-control" required id="current_password" placeholder="current password">
+
+      </div>
+      <div class="form-group">
+        <label for="new_password">New Password</label>
+        <input type="password" name="author[new_password]" class="form-control" id="new_password" aria-describedby="emailHelp" required placeholder="new password">
+      </div>
+      <div class="form-group">
+        <label for="password_confirmation">Password Confirmation</label>
+        <input type="password" name="author[new_password_confirmation]" class="form-control" id="password_confirmation" aria-describedby="emailHelp" required placeholder="password confirmation">
+      </div>
+
+      <button type="submit" class="btn btn-outline-warning">Change Password</button>
+    <% end %>
+  </div>
+</div>
