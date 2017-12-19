@@ -1,5 +1,6 @@
 <% provide(:page_title, 'Author') %>
 <% provide(:authors, "active") %>
+
 <% if flash.any? %>
     <% flash.keys.each do |key| %>
         <div class="alert alert-<%= key.to_s %> alert-dismissible fade show" role="alert">
@@ -10,6 +11,7 @@
         </div>
     <% end %>
 <% end %>
+
 <div class="row">
     <div class="col-md-6">
       <%= form_tag authors_info_path, method: :put do %>

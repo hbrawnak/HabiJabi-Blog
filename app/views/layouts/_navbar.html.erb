@@ -1,8 +1,5 @@
 <header class="masthead">
   <h3 class="text-muted">HabiJabi Blog</h3>
-  <% if author_signed_in? %>
-  <small style="color: #32383e" class="text-muted"><b><%= current_author.name %></b></small>
-  <% end %>
   <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,7 +19,7 @@
         <% if author_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle <%= yield(:authors) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Author
+              <%= current_author.name %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
