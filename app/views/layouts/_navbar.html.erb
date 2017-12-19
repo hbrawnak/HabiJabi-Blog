@@ -19,7 +19,15 @@
         <% if author_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle <%= yield(:authors) %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_author.name %>
+
+              <% if current_author.name %>
+
+                 <%= current_author.name  %>
+
+                  <% else %>
+                  Author
+              <% end %>
+
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'My posts', authors_posts_path, class: "dropdown-item" %>
